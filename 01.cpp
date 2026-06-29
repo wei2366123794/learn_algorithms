@@ -13,12 +13,11 @@ int getMax(int c, vector<int> bw);
 int main() {
 
     // cout << "hello";
-    vector<int> bw = { 5, 3, 7, 9, 1 };
+    vector<int> bw = { 5, 3, 7, 9, 1, 10 };
 
-    getMax(20, bw);
+    int max = getMax(20, bw);
 
-
-
+    cout << max << endl;
 }
 
 
@@ -26,9 +25,15 @@ int getMax(int c, vector<int> bw) {
     int len = bw.size();
 
     sort(bw.begin(), bw.end());
+    int sum = 0;
 
     for (int i = 0; i < bw.size(); i++) {
-        cout << bw[i] << " ";
+        // cout << bw[i] << " ";
+        sum += bw[i];
+        if (sum > c) {
+            return i;
+        }
+
     }
 
     return 0;
